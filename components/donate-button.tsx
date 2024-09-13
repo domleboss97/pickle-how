@@ -3,7 +3,7 @@ import { stripe } from "@/lib/stripe/client"
 import { fullURL } from "@/lib/url-fns/full-url"
 import { redirect } from "next/navigation"
 import { Button } from "./ui/button"
-import { Donut } from "lucide-react"
+import { Smile } from "lucide-react"
 
 async function createSession() {
   "use server"
@@ -40,8 +40,8 @@ export function DonateButton() {
         variant="link"
         type="submit"
       >
-        <Donut className="size-4" />
-        <span className="block">Buy me a donut</span>
+        <Smile className="size-4" />
+        <span className="block">Buy me a pickle</span>
       </Button>
     </form>
   )

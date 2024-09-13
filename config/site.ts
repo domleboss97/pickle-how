@@ -1,12 +1,13 @@
 export const siteConfig = {
   // The name of the project
-  name: "Hello world",
+  name: "Pickle How?",
 
   // A short name for the project, useful for mobile devices
-  shortName: "Hello",
+  shortName: "Pickle How?",
 
   // A description of the project
-  description: "saying hello.",
+  description:
+    "Ask your pickleball questions and get answers from your AI pickleball assistant.",
 
   // Information about the author / company of the site
   author: {
@@ -22,5 +23,5 @@ export const siteConfig = {
     linkedin: "https://www.linkedin.com/in/dominic-bosco/"
   },
 
-  keywords: []
+  keywords: ["pickleball", "ai", "assistant", "questions", "answers", "rules"]
 }
