@@ -7,7 +7,10 @@ export const env = createEnv({
   server: {
     // Stripe
     STRIPE_API_KEY: z.string(),
-    STRIPE_MODE: z.enum(["test", "live"]).default("test")
+    STRIPE_MODE: z.enum(["test", "live"]).default("test"),
+
+    // Anthropic
+    ANTHROPIC_API_KEY: z.string()
   },
   experimental__runtimeEnv: process.env
 })

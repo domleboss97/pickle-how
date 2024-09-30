@@ -1,36 +1,26 @@
 "use client"
 
-import { useState } from "react"
-import { Button } from "@/components/ui/button"
-import { Input } from "@/components/ui/input"
+import Markdown from "react-markdown"
+import remarkGfm from "remark-gfm"
 
-const mockResponses = [
-  "Aim for the kitchen! It's not just for cooking in pickleball.",
-  "Remember, in pickleball, love is just a score, not a feeling!",
-  "Dinking is not what you do in a pool, it's a key pickleball strategy!",
-  "The sweet spot in pickleball is like finding the perfect avocado - pure joy!",
-  "Paddle up, worries down! That's the pickleball way of life."
-]
+import { Button } from "@/components/ui/button"
+import { useChat } from "ai/react"
+import { Input } from "@/components/ui/input"
+import PickleIcon from "@/components/icons/pickle-icon"
 
 export default function Component() {
-  const [question, setQuestion] = useState("")
-  const [qa, setQA] = useState<{ question: string; answer: string } | null>(
-    null
-  )
+  const { messages, input, isLoading, handleInputChange, handleSubmit } =
+    useChat()
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault()
-    if (question.trim()) {
-      const randomAnswer =
-        mockResponses[Math.floor(Math.random() * mockResponses.length)]
-      setQA({ question, answer: randomAnswer })
-      setQuestion("")
-    }
-  }
+  const questionIndex = messages.findLastIndex(
+    (message) => message.role === "user"
+  )
+  const question = messages[questionIndex]
+  const answer = messages[questionIndex + 1]
 
   return (
     <div className="flex w-full flex-col items-center p-4 sm:p-8">
-      <div className="w-full max-w-md">
+      <div className="w-full max-w-lg">
         <div className="mt-8 flex justify-center space-x-4">
           <span className="text-4xl">🏓</span>
         </div>
@@ -42,8 +32,8 @@ export default function Component() {
           <Input
             type="text"
             placeholder="Ask your pickleball question..."
-            value={question}
-            onChange={(e) => setQuestion(e.target.value)}
+            value={input}
+            onChange={handleInputChange}
             className="border-primary bg-white"
           />
           <Button type="submit" className="w-full text-white">
@@ -51,10 +41,22 @@ export default function Component() {
           </Button>
         </form>
 
-        {qa && (
+        {question && (
           <div className="space-y-4 rounded-lg bg-white p-6 shadow-lg">
-            <div className="font-semibold text-green-700">{qa.question}</div>
-            <div className="text-gray-700">{qa.answer}</div>
+            <div className="font-semibold text-green-700">
+              {question?.content}
+            </div>
+            {isLoading && !answer?.content ? (
+              <div className="flex items-center justify-center">
+                <PickleIcon className="size-12 animate-spin" />
+              </div>
+            ) : (
+              <div className="prose text-gray-700">
+                <Markdown remarkPlugins={[remarkGfm]}>
+                  {answer?.content ?? ""}
+                </Markdown>
+              </div>
+            )}
           </div>
         )}
       </div>
