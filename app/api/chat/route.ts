@@ -43,7 +43,7 @@ export async function POST(req: Request) {
       { type: "text", text: systemPrompt },
       {
         type: "text",
-        text: rulesText.slice(0, 10_000),
+        text: rulesText,
         cache_control: { type: "ephemeral" }
       }
     ],
