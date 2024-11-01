@@ -4,7 +4,7 @@ import { env } from "@/env/server"
 import { AnthropicStream, StreamingTextResponse } from "ai"
 import { z } from "zod"
 import { systemPrompt } from "@/lib/pickle/system-message"
-import { rulesText } from "@/lib/pickle/pickle-rules"
+import rules from "@/lib/pickle/rules.md"
 import { PromptCachingBetaMessageParam } from "@anthropic-ai/sdk/resources/beta/prompt-caching/messages.mjs"
 
 // Allow streaming responses up to 30 seconds
@@ -43,7 +43,7 @@ export async function POST(req: Request) {
       { type: "text", text: systemPrompt },
       {
         type: "text",
-        text: rulesText,
+        text: rules,
         cache_control: { type: "ephemeral" }
       }
     ],
