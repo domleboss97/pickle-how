@@ -31,10 +31,10 @@ export default function Component() {
         <form onSubmit={handleSubmit} className="mb-8 space-y-4">
           <Input
             type="text"
-            placeholder="Ask your pickleball question..."
+            placeholder="Ask a question..."
             value={input}
             onChange={handleInputChange}
-            className="border-primary bg-white"
+            className="border-primary bg-white text-base"
           />
           <Button type="submit" className="w-full text-white">
             Serve it up!
