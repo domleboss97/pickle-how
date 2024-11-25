@@ -19,7 +19,7 @@ export default function Component() {
   const answer = messages[questionIndex + 1]
 
   return (
-    <div className="flex w-full flex-col items-center p-4 sm:p-8">
+    <div className="flex w-full flex-col items-center">
       <div className="w-full max-w-lg">
         <div className="mt-8 flex justify-center space-x-4">
           <span className="text-4xl">🏓</span>
