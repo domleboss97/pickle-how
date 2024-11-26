@@ -1,27 +1,61 @@
 export const siteConfig = {
-  // The name of the project
-  name: "Pickle How?",
-
-  // A short name for the project, useful for mobile devices
+  name: "Pickle How? - Your AI Pickleball Coach & Rules Assistant",
   shortName: "Pickle How?",
 
-  // A description of the project
   description:
-    "Ask your pickleball questions and get answers from your AI pickleball assistant.",
+    "Get expert pickleball tips, rules explanations, and strategy advice from our AI coach. Learn proper technique, scoring, serving rules, and improve your game instantly.",
 
-  // Information about the author / company of the site
   author: {
-    // The name of the company/author
     name: "dom the bomb"
   },
 
-  // Links related to the project
   links: {
-    // The GitHub link for the project
     github: "https://github.com/domleboss97",
-
     linkedin: "https://www.linkedin.com/in/dominic-bosco/"
   },
 
-  keywords: ["pickleball", "ai", "assistant", "questions", "answers", "rules"]
+  keywords: [
+    // Existing keywords
+    "pickleball",
+    "pickleball rules",
+    "pickleball coaching",
+    "pickleball lessons",
+    "pickleball strategy",
+    "pickleball scoring",
+    "pickleball serve rules",
+    "ai coach",
+    "pickleball assistant",
+    "learn pickleball",
+    "beginner pickleball",
+    "pickleball tips",
+
+    // Competitive levels
+    "advanced pickleball",
+    "intermediate pickleball",
+    "professional pickleball",
+    "tournament pickleball",
+
+    // Equipment
+    "pickleball paddle",
+    "pickleball court",
+    "pickleball gear",
+
+    // Specific techniques
+    "dinking pickleball",
+    "pickleball serves",
+    "pickleball volleys",
+    "pickleball doubles",
+    "pickleball singles",
+
+    // Format variations
+    "online pickleball lessons",
+    "virtual pickleball coach",
+    "pickleball training",
+    "pickleball drills",
+
+    // Common questions
+    "how to play pickleball",
+    "pickleball for beginners",
+    "pickleball near me"
+  ]
 }
