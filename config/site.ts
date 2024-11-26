@@ -1,5 +1,5 @@
 export const siteConfig = {
-  name: "Pickle How? - Your AI Pickleball Coach & Rules Assistant",
+  name: "Pickle How? - Your AI Pickleball Coach",
   shortName: "Pickle How?",
 
   description:
