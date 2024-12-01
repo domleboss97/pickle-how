@@ -20,7 +20,7 @@ export default function Component() {
 
   return (
     <div className="flex w-full flex-col items-center">
-      <div className="w-full max-w-lg">
+      <div className="w-full max-w-xl">
         <div className="mt-8 flex justify-center space-x-4">
           <span className="text-4xl">🏓</span>
         </div>
