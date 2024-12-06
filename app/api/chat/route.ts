@@ -5,7 +5,6 @@ import { AnthropicStream, StreamingTextResponse } from "ai"
 import { z } from "zod"
 import { systemPrompt } from "@/lib/pickle/system-message"
 import rules from "@/lib/pickle/rules.md"
-import { PromptCachingBetaMessageParam } from "@anthropic-ai/sdk/resources/beta/prompt-caching/messages.mjs"
 
 // Allow streaming responses up to 30 seconds
 export const maxDuration = 30
@@ -30,7 +29,7 @@ export async function POST(req: Request) {
     return new Response("No user question found", { status: 400 })
   }
 
-  const messages: PromptCachingBetaMessageParam[] = [
+  const messages: Anthropic.Beta.BetaMessageParam[] = [
     { role: "user", content: userQuestion.content }
   ]
 
@@ -38,7 +37,8 @@ export async function POST(req: Request) {
     apiKey: env.ANTHROPIC_API_KEY
   })
 
-  const result = await client.beta.promptCaching.messages.create({
+  const result = await client.beta.messages.create({
+    betas: ["prompt-caching-2024-07-31"],
     system: [
       { type: "text", text: systemPrompt },
       {
